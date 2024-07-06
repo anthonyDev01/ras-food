@@ -3,6 +3,7 @@ package br.com.rasfood.restaurante.entity;
 import org.hibernate.type.descriptor.java.LocalDateJavaDescriptor;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -15,6 +16,7 @@ public class Prato {
     private String descricao;
     private Boolean disponivel;
 
+    private BigDecimal valor;
     @Column(name = "data_de_registro")
     private LocalDateTime dataDeRegistro = LocalDateTime.now();
 
@@ -60,6 +62,14 @@ public class Prato {
 
     public void setDataDeRegistro(LocalDateTime dataDeRegistro) {
         this.dataDeRegistro = dataDeRegistro;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
     }
 
     @Override
