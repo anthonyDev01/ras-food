@@ -40,19 +40,19 @@ public class CardapioService {
         salmao.setCategoria(categoria);
         salmao.setValor(BigDecimal.valueOf(60.50));
 
-
-
-        CardapioDao pratoDao = new CardapioDao(entityManager);
+        CardapioDao cardapioDao = new CardapioDao(entityManager);
         entityManager.getTransaction().begin();
 
-        pratoDao.cadastrar(risoto);
+        cardapioDao.cadastrar(risoto);
         entityManager.flush();
 
-        pratoDao.cadastrar(salmao);
+        cardapioDao.cadastrar(salmao);
         entityManager.flush();
 
-        System.out.println("O prato consultado foi " + pratoDao.consultar(1));
-        System.out.println("O prato consultado foi " + pratoDao.consultar(2));
+        //System.out.println("O prato consultado foi " + cardapioDao.consultarPorID(1));
+        //System.out.println("O prato consultado foi " + cardapioDao.consultarPorID(2));
+
+        cardapioDao.consultarTodos().forEach(elemento -> System.out.println("O prato consultado foi " + elemento));
 
         entityManager.close();
 
